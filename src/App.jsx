@@ -4,7 +4,6 @@ import photos from './data/photos';
 const App = () => {
   return (
     <div>
-      <h1>My Unsplash</h1>
       <Gallery photos={photos} />
     </div>
   );
