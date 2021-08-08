@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Logo from '../../assets/my_unsplash_logo.svg';
+import Button from '../common/Button';
 import SearchBar from './SearchBar';
 
 const FlexWrapper = styled.div`
@@ -19,7 +20,7 @@ const Navigation = () => (
       <img src={Logo} alt="My Unsplash Logo" height="32px" />
       <SearchBar />
     </FlexWrapper>
-    <button>Add a photo</button>
+    <Button color="#3DB46D">Add a photo</Button>
   </StyledNavigation>
 );
 
