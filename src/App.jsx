@@ -1,7 +1,10 @@
+import Gallery from './features/gallery/Gallery';
+import photos from './data/photos';
+
 const App = () => {
   return (
     <div>
-      <h1>App</h1>
+      <Gallery photos={photos} />
     </div>
   );
 };
