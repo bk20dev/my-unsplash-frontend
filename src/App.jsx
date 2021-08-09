@@ -1,4 +1,4 @@
-import Modal from './features/common/Modal';
+import AddPhotoModal from './features/gallery/AddPhotoModal';
 import Gallery from './features/gallery/Gallery';
 import Navigation from './features/navigation/Navigation';
 import useSearchPhotos from './hooks/useSearchPhotos';
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <Modal title={'Add a new photo'}>Something</Modal>
+      <AddPhotoModal />
       <Navigation />
       {renderGallery()}
     </div>

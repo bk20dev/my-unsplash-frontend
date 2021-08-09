@@ -8,15 +8,15 @@ const photos = createApi({
       query: () => '/photos',
     }),
     create: builder.mutation({
-      query: (data) => ({
+      query: (url, label) => ({
         url: '/photos',
         method: 'POST',
-        body: data,
+        body: { url, label },
       }),
     }),
   }),
 });
 
-export const { useFindAllQuery } = photos;
+export const { useFindAllQuery, useCreateMutation } = photos;
 
 export default photos;
