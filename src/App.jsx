@@ -1,10 +1,11 @@
+import Modal from './features/common/Modal';
 import Gallery from './features/gallery/Gallery';
 import Navigation from './features/navigation/Navigation';
 import useSearchPhotos from './hooks/useSearchPhotos';
-import { useGetAllPhotosQuery } from './services/photos';
+import { useFindAllQuery } from './services/photos';
 
 const App = () => {
-  const { data, error, isLoading } = useGetAllPhotosQuery();
+  const { data, error, isLoading } = useFindAllQuery();
 
   const photos = useSearchPhotos(data);
 
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <div>
+      <Modal title={'Add a new photo'}>Something</Modal>
       <Navigation />
       {renderGallery()}
     </div>

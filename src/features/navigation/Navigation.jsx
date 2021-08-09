@@ -1,5 +1,7 @@
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Logo from '../../assets/my_unsplash_logo.svg';
+import { update } from '../../services/search';
 import Button from '../common/Button';
 import SearchBar from './SearchBar';
 
@@ -14,14 +16,24 @@ const StyledNavigation = styled(FlexWrapper)`
   margin-bottom: 2.5rem;
 `;
 
-const Navigation = () => (
-  <StyledNavigation as="nav">
-    <FlexWrapper>
-      <img src={Logo} alt="My Unsplash Logo" height="32px" />
-      <SearchBar />
-    </FlexWrapper>
-    <Button color="#3DB46D">Add a photo</Button>
-  </StyledNavigation>
-);
+const Navigation = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <StyledNavigation as="nav">
+      <FlexWrapper>
+        <img
+          src={Logo}
+          alt="My Unsplash Logo"
+          height="32px"
+          onClick={() => dispatch(update(''))}
+          style={{ cursor: 'pointer' }}
+        />
+        <SearchBar />
+      </FlexWrapper>
+      <Button color="#3DB46D">Add a photo</Button>
+    </StyledNavigation>
+  );
+};
 
 export default Navigation;

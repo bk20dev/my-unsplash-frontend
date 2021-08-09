@@ -4,12 +4,19 @@ const photos = createApi({
   reducerPath: 'photos',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/' }),
   endpoints: (builder) => ({
-    getAllPhotos: builder.query({
+    findAll: builder.query({
       query: () => '/photos',
+    }),
+    create: builder.mutation({
+      query: (data) => ({
+        url: '/photos',
+        method: 'POST',
+        body: data,
+      }),
     }),
   }),
 });
 
-export const { useGetAllPhotosQuery } = photos;
+export const { useFindAllQuery } = photos;
 
 export default photos;
