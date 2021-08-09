@@ -1,5 +1,7 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import SearchIcon from '../../assets/search_black_24dp.svg';
+import { update } from '../../services/search';
 
 const StyledLabel = styled.label`
   position: relative;
@@ -31,10 +33,23 @@ const StyledInput = styled.input`
 `;
 
 const SearchBar = () => {
+  const dispatch = useDispatch();
+  const search = useSelector((state) => state.search);
+
+  const handleChange = (event) => {
+    const term = event.target.value;
+    dispatch(update(term));
+  };
+
   return (
     <StyledLabel>
       <StyledIcon src={SearchIcon} alt="Search" />
-      <StyledInput type="text" placeholder="Search by name" />
+      <StyledInput
+        type="text"
+        placeholder="Search by name"
+        onChange={handleChange}
+        value={search}
+      />
     </StyledLabel>
   );
 };

@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import styled from 'styled-components';
 import distributePhotos from './distributePhotos';
 import Photo from './Photo';
-import sortPhotos from './sortPhotos';
 
 const StyledContainer = styled.div`
   display: grid;
@@ -18,8 +17,7 @@ const StyledColumn = styled(StyledContainer)`
 
 const Gallery = ({ photos }) => {
   const columns = useMemo(() => {
-    const sorted = sortPhotos(photos);
-    return distributePhotos(sorted, 3, 28);
+    return distributePhotos(photos, 3, 28);
   }, [photos]);
 
   return (
