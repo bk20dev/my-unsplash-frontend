@@ -9,3 +9,9 @@
 html {
   font: 500 16px 'Montserrat';
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
