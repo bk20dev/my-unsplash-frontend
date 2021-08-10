@@ -12,10 +12,10 @@ const ControlsWrapper = styled.footer`
 `;
 
 const AddPhotoModal = ({ onClose }) => {
-  const [createImage, { error }] = useCreateMutation();
+  const [addPhoto, { error }] = useCreateMutation();
 
   const handleSubmit = async ({ label, url }) => {
-    const response = await createImage({ label, url });
+    const response = await addPhoto({ label, url });
     if (!response.error) onClose();
   };
 
@@ -46,12 +46,12 @@ const AddPhotoModal = ({ onClose }) => {
               <Button
                 type="button"
                 color="transparent"
-                textColor="#BDBDBD"
+                textColor="#bdbdbd"
                 onClick={() => onClose()}
               >
                 Cancel
               </Button>
-              <Button type="submit" color="#3DB46D">
+              <Button type="submit" color="#3db46d">
                 Submit
               </Button>
             </ControlsWrapper>

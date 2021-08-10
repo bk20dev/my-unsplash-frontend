@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import distributePhotos from './utils/distributePhotos';
 import Photo from './Photo';
+import RemovePhotoModal from './RemovePhotoModal';
+import distributePhotos from './utils/distributePhotos';
 
 const StyledContainer = styled.div`
   display: grid;
@@ -20,16 +21,34 @@ const Gallery = ({ photos }) => {
     return distributePhotos(photos, 3, 28);
   }, [photos]);
 
+  const [deleteModalPhoto, setDeleteModalPhoto] = useState(null);
+
   return (
-    <StyledContainer>
-      {columns.map((column, i) => (
-        <StyledColumn key={i}>
-          {column.map(({ id, url, label }) => (
-            <Photo key={id} src={url} label={label} />
-          ))}
-        </StyledColumn>
-      ))}
-    </StyledContainer>
+    <>
+      <StyledContainer>
+        {columns.map((column, i) => (
+          <StyledColumn key={i}>
+            {column.map((photo) => {
+              const { id, url, label } = photo;
+              return (
+                <Photo
+                  key={id}
+                  src={url}
+                  label={label}
+                  onClick={() => setDeleteModalPhoto(photo)}
+                />
+              );
+            })}
+          </StyledColumn>
+        ))}
+      </StyledContainer>
+      {deleteModalPhoto && (
+        <RemovePhotoModal
+          photo={deleteModalPhoto}
+          onClose={() => setDeleteModalPhoto(null)}
+        />
+      )}
+    </>
   );
 };
 

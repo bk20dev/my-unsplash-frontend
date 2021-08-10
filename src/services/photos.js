@@ -17,9 +17,16 @@ const photos = createApi({
       }),
       invalidatesTags: ['Photos'],
     }),
+    delete: builder.mutation({
+      query: (id) => ({
+        url: `/photos/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Photos'],
+    }),
   }),
 });
 
-export const { useFindAllQuery, useCreateMutation } = photos;
+export const { useFindAllQuery, useCreateMutation, useDeleteMutation } = photos;
 
 export default photos;

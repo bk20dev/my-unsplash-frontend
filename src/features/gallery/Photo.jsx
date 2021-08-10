@@ -64,12 +64,12 @@ const StyledCaption = styled.figcaption`
   word-break: break-word;
 `;
 
-const Photo = ({ src, label }) => (
+const Photo = ({ src, label, onClick }) => (
   <StyledContainer>
     <img src={src} alt={label} width="100%" style={{ display: 'block' }} />
     <Overlay />
     <StyledWrapper>
-      <StyledButton>delete</StyledButton>
+      <StyledButton onClick={onClick}>delete</StyledButton>
       <StyledCaption>{label}</StyledCaption>
     </StyledWrapper>
   </StyledContainer>

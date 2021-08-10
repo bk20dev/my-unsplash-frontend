@@ -8,6 +8,10 @@ const Button = styled.button`
   font: inherit;
   padding: 1rem 1.25rem;
   cursor: pointer;
+
+  :disabled {
+    filter: grayscale(0.3);
+  }
 `;
 
 export default Button;
