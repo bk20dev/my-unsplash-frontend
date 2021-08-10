@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import styled from 'styled-components';
-import distributePhotos from './distributePhotos';
+import distributePhotos from './utils/distributePhotos';
 import Photo from './Photo';
 
 const StyledContainer = styled.div`

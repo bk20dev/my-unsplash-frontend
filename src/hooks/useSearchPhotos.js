@@ -2,8 +2,6 @@ import Fuse from 'fuse.js';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-const getTime = (date) => new Date(date).getTime();
-
 const useSearchPhotos = (data) => {
   const term = useSelector((state) => state.search);
 
@@ -11,8 +9,9 @@ const useSearchPhotos = (data) => {
     if (!data) return [];
 
     if (!term) {
-      const comparison = (a, b) => getTime(b.timestamp) - getTime(a.timestamp);
-      return data.slice().sort(comparison);
+      return data
+        .slice()
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     }
 
     const fuse = new Fuse(data, {
