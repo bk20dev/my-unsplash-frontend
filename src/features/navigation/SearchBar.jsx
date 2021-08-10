@@ -5,6 +5,10 @@ import { update } from '../../services/search';
 
 const StyledLabel = styled.label`
   position: relative;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const StyledIcon = styled.img`
@@ -29,6 +33,10 @@ const StyledInput = styled.input`
 
   ::placeholder {
     color: #bdbdbd;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
