@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Gallery from './features/gallery/Gallery';
+import Footer from './features/navigation/Footer';
 import Navigation from './features/navigation/Navigation';
 import useSearchPhotos from './hooks/useSearchPhotos';
 import { useFindAllQuery } from './services/photos';
@@ -26,6 +27,7 @@ const App = () => {
     <StyledContainer>
       <Navigation />
       {renderGallery()}
+      <Footer />
     </StyledContainer>
   );
 };
