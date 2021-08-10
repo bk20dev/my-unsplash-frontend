@@ -2,17 +2,20 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const photos = createApi({
   reducerPath: 'photos',
+  tagTypes: ['Photos'],
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/' }),
   endpoints: (builder) => ({
     findAll: builder.query({
       query: () => '/photos',
+      providesTags: ['Photos'],
     }),
     create: builder.mutation({
-      query: (url, label) => ({
+      query: ({ label, url }) => ({
         url: '/photos',
         method: 'POST',
-        body: { url, label },
+        body: { label, url },
       }),
+      invalidatesTags: ['Photos'],
     }),
   }),
 });

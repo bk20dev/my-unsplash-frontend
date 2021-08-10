@@ -1,4 +1,3 @@
-import AddPhotoModal from './features/gallery/AddPhotoModal';
 import Gallery from './features/gallery/Gallery';
 import Navigation from './features/navigation/Navigation';
 import useSearchPhotos from './hooks/useSearchPhotos';
@@ -18,7 +17,6 @@ const App = () => {
 
   return (
     <div>
-      <AddPhotoModal />
       <Navigation />
       {renderGallery()}
     </div>

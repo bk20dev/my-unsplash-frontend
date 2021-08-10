@@ -1,5 +1,6 @@
 import { Form } from 'react-final-form';
 import styled from 'styled-components';
+import { useCreateMutation } from '../../services/photos';
 import Button from '../common/Button';
 import LabeledField from '../common/LabeledField';
 import Modal from '../common/Modal';
@@ -10,13 +11,20 @@ const ControlsWrapper = styled.footer`
   margin-top: 0.375rem;
 `;
 
-const AddPhotoModal = () => {
-  const handleSubmit = (values) => {
-    console.log(values);
+const AddPhotoModal = ({ onClose }) => {
+  const [createImage, { error }] = useCreateMutation();
+
+  const handleSubmit = async ({ label, url }) => {
+    const response = await createImage({ label, url });
+    if (!response.error) onClose();
   };
 
   return (
-    <Modal title="Add a new photo">
+    <Modal
+      title="Add a new photo"
+      onClose={onClose}
+      error={error?.data?.message?.join('. ')}
+    >
       <Form
         onSubmit={handleSubmit}
         render={({ handleSubmit }) => (
@@ -35,7 +43,12 @@ const AddPhotoModal = () => {
               required
             />
             <ControlsWrapper>
-              <Button type="button" color="transparent" textColor="#BDBDBD">
+              <Button
+                type="button"
+                color="transparent"
+                textColor="#BDBDBD"
+                onClick={() => onClose()}
+              >
                 Cancel
               </Button>
               <Button type="submit" color="#3DB46D">

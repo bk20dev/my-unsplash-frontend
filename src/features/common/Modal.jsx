@@ -18,6 +18,21 @@ const StyledCard = styled.article`
   padding: 1.5rem 2rem;
   border-radius: 0.75rem;
   width: 36rem;
+  position: relative;
+`;
+
+const StyledError = styled.p`
+  background: #e53935;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 2rem 0.75rem;
+  transform: translateY(calc(100% - 1.25rem));
+  z-index: -1;
+  border-radius: 0 0 0.75rem 0.75rem;
+  word-break: break-word;
 `;
 
 const StyledTitle = styled.h2`
@@ -26,10 +41,11 @@ const StyledTitle = styled.h2`
   margin-bottom: 1.5rem;
 `;
 
-const Modal = ({ title, children }) =>
+const Modal = ({ title, children, onClose, error = null }) =>
   createPortal(
-    <StyledOverlay>
-      <StyledCard>
+    <StyledOverlay onMouseUp={() => onClose()}>
+      <StyledCard onMouseUp={(e) => e.stopPropagation()}>
+        {error && <StyledError>{error}</StyledError>}
         <StyledTitle>{title}</StyledTitle>
         {children}
       </StyledCard>
