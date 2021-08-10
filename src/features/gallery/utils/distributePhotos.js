@@ -1,4 +1,4 @@
-const getUnifiedHeight = (width, height) => (height * 100) / width;
+const getUnifiedHeight = (width, height) => (height * 300) / width;
 
 const distributePhotos = (photos, columnCount, gap = 32) => {
   const columns = [...new Array(columnCount)].map(() => []);

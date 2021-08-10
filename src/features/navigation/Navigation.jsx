@@ -31,7 +31,7 @@ const Navigation = () => {
             alt="My Unsplash Logo"
             height="32px"
             onClick={() => dispatch(update(''))}
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: 'pointer', marginRight: '1.75rem' }}
           />
           <SearchBar />
         </FlexWrapper>

@@ -1,7 +1,14 @@
+import styled from 'styled-components';
 import Gallery from './features/gallery/Gallery';
 import Navigation from './features/navigation/Navigation';
 import useSearchPhotos from './hooks/useSearchPhotos';
 import { useFindAllQuery } from './services/photos';
+
+const StyledContainer = styled.div`
+  padding: 0 1.75rem;
+  max-width: 81rem;
+  margin: auto;
+`;
 
 const App = () => {
   const { data, error, isLoading } = useFindAllQuery();
@@ -16,10 +23,10 @@ const App = () => {
   };
 
   return (
-    <div>
+    <StyledContainer>
       <Navigation />
       {renderGallery()}
-    </div>
+    </StyledContainer>
   );
 };
 

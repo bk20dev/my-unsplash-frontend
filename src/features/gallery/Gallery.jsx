@@ -4,7 +4,7 @@ import Photo from './Photo';
 import RemovePhotoModal from './RemovePhotoModal';
 import distributePhotos from './utils/distributePhotos';
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.main`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;

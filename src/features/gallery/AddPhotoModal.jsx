@@ -12,7 +12,7 @@ const ControlsWrapper = styled.footer`
 `;
 
 const AddPhotoModal = ({ onClose }) => {
-  const [addPhoto, { error }] = useCreateMutation();
+  const [addPhoto, { isLoading, error }] = useCreateMutation();
 
   const handleSubmit = async ({ label, url }) => {
     const response = await addPhoto({ label, url });
@@ -51,7 +51,7 @@ const AddPhotoModal = ({ onClose }) => {
               >
                 Cancel
               </Button>
-              <Button type="submit" color="#3db46d">
+              <Button type="submit" color="#3db46d" disabled={isLoading}>
                 Submit
               </Button>
             </ControlsWrapper>
