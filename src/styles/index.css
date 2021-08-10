@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
 
 * {
   padding: 0;
@@ -7,5 +7,5 @@
 }
 
 html {
-  font: 500 16px 'Ubuntu';
+  font: 500 16px 'Montserrat';
 }
